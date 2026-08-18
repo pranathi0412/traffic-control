@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traffic-control-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: traffic-control
+  template:
+    metadata:
+      labels:
+        app: traffic-control
+    spec:
+      containers:
+      - name: traffic-control
+        image: pranathi0412/traffic-control:v1.0
+        ports:
+        - containerPort: 5001
+        env:
+        - name: SNS_TOPIC_ARN
+          value: "arn:aws:sns:us-east-1:123456789012:TrafficAlerts"
+          
