@@ -26,4 +26,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: pranathi0412.traffic-control:v1.0
+        tags: pranathi0412/traffic-control:v1.0
